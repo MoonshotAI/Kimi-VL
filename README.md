@@ -4,7 +4,9 @@
 
 <div align="center">
   <a href="Kimi-VL.pdf"><img src="figures/logo.png" height="16" width="16" style="vertical-align:middle"><b> Tech Report</b></a>  |  
-  <a href="https://huggingface.co/moonshotai/Kimi-VL-A3B-Instruct"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="16" width="16" style="vertical-align:middle"><b> HuggingFace</b></a>
+  <a href="https://huggingface.co/moonshotai/Kimi-VL-A3B-Instruct"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="16" width="16" style="vertical-align:middle"><b> HuggingFace</b>
+  </a> |
+  <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">💬 Chat Web</a>
 </div>
 
 
@@ -44,7 +46,8 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 </div>
 
 ### Huggingface Demo
-Coming soon!
+
+Welcome to chat with the **Kimi-VL-A3B-Thinking** model on <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">Chat Web</a>.
 
 ## Performance
 
