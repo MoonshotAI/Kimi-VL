@@ -62,17 +62,7 @@ With effective long-thinking abilitites, Kimi-VL-A3B-Thinking can match the perf
   <img width="100%" src="figures/thinking_perf.png">
 </div>
 
-## Example usage
-
-### Setup
-
-```bash
-conda create -n kimi-vl python=3.10 -y
-conda activate kimi-vl
-pip install -r requirements.txt
-```
-
-### Model Download
+## Model Download
 
 <div align="center">
 
@@ -82,6 +72,16 @@ pip install -r requirements.txt
 | Kimi-VL-A3B-Thinking  | 16B | 3B |  128K   | [🤗 Hugging Face](https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking)   |
 
 </div>
+
+## Example usage
+
+### Setup
+
+```bash
+conda create -n kimi-vl python=3.10 -y
+conda activate kimi-vl
+pip install -r requirements.txt
+```
 
 ### Inference with Hugging Face Transformers 
 
@@ -156,8 +156,8 @@ response = processor.batch_decode(
 print(response)
 ```
 
-### Inference with vLLM
+## Deployment
 
-Coming soon!
+### Using vLLM
 
-
+We have submitted a Merge Request [#16387](https://github.com/vllm-project/vllm/pull/16387) to vLLM. You are welcome to deploy Kimi-VL using the branch corresponding to the vLLM MR until the MR is merged.
