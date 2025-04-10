@@ -43,6 +43,9 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 
 </div>
 
+### Huggingface Demo
+Coming soon!
+
 ## Performance
 
 As an efficient model, Kimi-VL can robustly handle diverse tasks (fine-grained perception, math, college-level problems, OCR, agent, etc) across a broad spectrum of input forms (single-image, multi-image, video, long-document, etc).
@@ -156,3 +159,5 @@ print(response)
 ### Inference with vLLM
 
 Coming soon!
+
+
