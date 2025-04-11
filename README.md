@@ -10,7 +10,7 @@
 </div>
 
 
-## Introduction
+## 1. Introduction
 
 We present **Kimi-VL**, an efficient open-source Mixture-of-Experts (MoE) vision-language model (VLM) that offers **advanced multimodal reasoning, long-context understanding, and strong agent capabilities**—all while activating only **2.8B** parameters in its language decoder (Kimi-VL-A3B).
 
@@ -24,7 +24,7 @@ Kimi-VL also advances the pareto frontiers of multimodal models in processing lo
 
 Building on this foundation, we introduce an advanced long-thinking variant: **Kimi-VL-Thinking**. Developed through long chain-of-thought (CoT) supervised fine-tuning (SFT) and reinforcement learning (RL), this model exhibits strong long-horizon reasoning capabilities. It achieves scores of 61.7 on MMMU, 36.8 on MathVision, and 71.3 on MathVista while maintaining the compact 2.8B activated LLM parameter footprint, setting a new standard for efficient yet capable multimodal **thinking** models.
 
-## Architecture
+## 2. Architecture
 
 The model adopts an MoE language model, a native-resolution visual encoder (MoonViT), and an MLP projector, as illustrated in the following image.
 
@@ -32,7 +32,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
   <img width="90%" src="figures/arch.png">
 </div>
 
-## Model Variants
+## 3. Model Variants
 
 🤗 For general multimodal perception and understanding, OCR, long video and long document, video perception, and agent uses, we recommend `Kimi-VL-A3B-Instruct` for efficient inference; for advanced text and multimodal reasoning (e.g. math), please consider using `Kimi-VL-A3B-Thinking`.
 
@@ -49,7 +49,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 
 Welcome to chat with the **Kimi-VL-A3B-Thinking** model on <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">Chat Web</a>.
 
-## Performance
+## 4. Performance
 
 As an efficient model, Kimi-VL can robustly handle diverse tasks (fine-grained perception, math, college-level problems, OCR, agent, etc) across a broad spectrum of input forms (single-image, multi-image, video, long-document, etc).
 
@@ -65,7 +65,7 @@ With effective long-thinking abilitites, Kimi-VL-A3B-Thinking can match the perf
   <img width="100%" src="figures/thinking_perf.png">
 </div>
 
-## Model Download
+## 5. Model Download
 
 <div align="center">
 
@@ -76,7 +76,7 @@ With effective long-thinking abilitites, Kimi-VL-A3B-Thinking can match the perf
 
 </div>
 
-## Example usage
+## 6. Example usage
 
 ### Setup
 
@@ -159,8 +159,23 @@ response = processor.batch_decode(
 print(response)
 ```
 
-## Deployment
+## 7. Deployment
 
 ### Using vLLM
 
 We have submitted a Merge Request [#16387](https://github.com/vllm-project/vllm/pull/16387) to vLLM. You are welcome to deploy Kimi-VL using the branch corresponding to the vLLM MR until the MR is merged.
+
+## 8. Citation
+
+```
+@misc{kimiteam2025kimivltechnicalreport,
+      title={Kimi-VL Technical Report}, 
+      author={Kimi Team and Angang Du and Bohong Yin and Bowei Xing and Bowen Qu and Bowen Wang and Cheng Chen and Chenlin Zhang and Chenzhuang Du and Chu Wei and Congcong Wang and Dehao Zhang and Dikang Du and Dongliang Wang and Enming Yuan and Enzhe Lu and Fang Li and Flood Sung and Guangda Wei and Guokun Lai and Han Zhu and Hao Ding and Hao Hu and Hao Yang and Hao Zhang and Haoning Wu and Haotian Yao and Haoyu Lu and Heng Wang and Hongcheng Gao and Huabin Zheng and Jiaming Li and Jianlin Su and Jianzhou Wang and Jiaqi Deng and Jiezhong Qiu and Jin Xie and Jinhong Wang and Jingyuan Liu and Junjie Yan and Kun Ouyang and Liang Chen and Lin Sui and Longhui Yu and Mengfan Dong and Mengnan Dong and Nuo Xu and Pengyu Cheng and Qizheng Gu and Runjie Zhou and Shaowei Liu and Sihan Cao and Tao Yu and Tianhui Song and Tongtong Bai and Wei Song and Weiran He and Weixiao Huang and Weixin Xu and Xiaokun Yuan and Xingcheng Yao and Xingzhe Wu and Xinxing Zu and Xinyu Zhou and Xinyuan Wang and Y. Charles and Yan Zhong and Yang Li and Yangyang Hu and Yanru Chen and Yejie Wang and Yibo Liu and Yibo Miao and Yidao Qin and Yimin Chen and Yiping Bao and Yiqin Wang and Yongsheng Kang and Yuanxin Liu and Yulun Du and Yuxin Wu and Yuzhi Wang and Yuzi Yan and Zaida Zhou and Zhaowei Li and Zhejun Jiang and Zheng Zhang and Zhilin Yang and Zhiqi Huang and Zihao Huang and Zijia Zhao and Ziwei Chen},
+      year={2025},
+      eprint={2504.07491},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.07491}, 
+}
+```
+
