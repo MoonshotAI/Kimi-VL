@@ -86,6 +86,10 @@ conda activate kimi-vl
 pip install -r requirements.txt
 ```
 
+> [!Note]
+> If you encounter Out of Memory or want to speed up inference, please install **flash-attn** with `pip install flash-attn --no-build-isolation`.
+
+
 ### Inference with Hugging Face Transformers 
 
 We introduce how to use our model at inference stage using transformers library. It is recommended to use python=3.10, torch>=2.1.0, and transformers=4.48.2 as the development environment. 
@@ -103,6 +107,16 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
     trust_remote_code=True,
 )
+# If flash-attn has been installed, it is recommended to set torch_dtype=torch.bfloat16 and attn_implementation="flash_attention_2"
+# to save memory and speed up inference
+# model = AutoModelForCausalLM.from_pretrained(
+#     model_path,
+#     torch_dtype=torch.bfloat16,
+#     device_map="auto",
+#     trust_remote_code=True,
+#     attn_implementation="flash_attention_2"
+# )
+
 processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
 
 image_path = "./figures/demo.png"
