@@ -180,13 +180,22 @@ response = processor.batch_decode(
 print(response)
 ```
 
-## 6. Deployment
+## 6. Finetuning
+
+Collaborating closely with the open-source community, Kimi-VL now offers seamless support for efficient fine-tuning through the latest version of [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). 
+
+The framework enables Single-GPU LoRA fine-tuning with 50GB of VRAM, as well as Multi-GPU full/lora fine-tuning using DeepSpeed ZeRO-2. For more detailed configuration instructions, check out [this PR](https://github.com/hiyouga/LLaMA-Factory/pull/7719#issue-2992644288).
+
+
+
+
+## 7. Deployment
 
 ### Using vLLM
 
 We have submitted a Merge Request [#16387](https://github.com/vllm-project/vllm/pull/16387) to vLLM. You are welcome to deploy Kimi-VL using the branch corresponding to the vLLM MR until the MR is merged.
 
-## 7. Citation
+## 8. Citation
 
 ```
 @misc{kimiteam2025kimivltechnicalreport,
