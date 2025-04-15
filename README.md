@@ -72,7 +72,7 @@ A brief comparison with existing 10B-level dense VLMs and DeepSeek-VL2 (A4.5B):
   <img width="100%" src="figures/instruct_perf.png">
 </div>
 
-With effective long-thinking abilitites, Kimi-VL-A3B-Thinking can match the performance of 30B/70B frontier open-source VLMs on MathVision benchmark:
+With effective long-thinking abilities, Kimi-VL-A3B-Thinking can match the performance of 30B/70B frontier open-source VLMs on MathVision benchmark:
 
 <div align="center">
   <img width="100%" src="figures/thinking_perf.png">
