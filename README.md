@@ -34,7 +34,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 
 ## 3. News
 
-- 2025.04.15: [vLLM](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. See [16387](https://github.com/vllm-project/vllm/pull/16387) for details.
+- 2025.04.15: [vLLM](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. See [#16387](https://github.com/vllm-project/vllm/pull/16387) for details.
 - 2025.04.14: [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) has supported Kimi-VL finetuning. See [#7719](https://github.com/hiyouga/LLaMA-Factory/pull/7719) for details.
 
 ## 4. Model Variants
