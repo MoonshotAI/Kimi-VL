@@ -32,7 +32,12 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
   <img width="90%" src="figures/arch.png">
 </div>
 
-## 3. Model Variants
+## 3. News
+
+- 2025.04.15: [vLLM](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. See [16387](https://github.com/vllm-project/vllm/pull/16387) for details.
+- 2025.04.14: [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) has supported Kimi-VL finetuning. See [#7719](https://github.com/hiyouga/LLaMA-Factory/pull/7719) for details.
+
+## 4. Model Variants
 
 🤗 For general multimodal perception and understanding, OCR, long video and long document, video perception, and agent uses, we recommend `Kimi-VL-A3B-Instruct` for efficient inference; for advanced text and multimodal reasoning (e.g. math), please consider using `Kimi-VL-A3B-Thinking`.
 
@@ -57,7 +62,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 > - Chat with **Kimi-VL-A3B-Thinking**👀🤔🗺️ (featuring thinking, math, puzzle solving) model on <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">Chat Web</a>.
 > - Chat with **Kimi-VL-A3B-Instruct**💻🎬📕 (featuring agent, video, multi-page document) model on <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B/">Chat Web</a>.
 
-## 4. Performance
+## 5. Performance
 
 As an efficient model, Kimi-VL can robustly handle diverse tasks (fine-grained perception, math, college-level problems, OCR, agent, etc) across a broad spectrum of input forms (single-image, multi-image, video, long-document, etc).
 
@@ -74,7 +79,7 @@ With effective long-thinking abilitites, Kimi-VL-A3B-Thinking can match the perf
 </div>
 
 
-## 5. Example usage
+## 6. Example usage
 
 ### Setup
 
@@ -180,22 +185,19 @@ response = processor.batch_decode(
 print(response)
 ```
 
-## 6. Finetuning
+## 7. Finetuning
 
 Collaborating closely with the open-source community, Kimi-VL now offers seamless support for efficient fine-tuning through the latest version of [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). 
 
 The framework enables Single-GPU LoRA fine-tuning with 50GB of VRAM, as well as Multi-GPU full/lora fine-tuning using DeepSpeed ZeRO-2. For more detailed configuration instructions, check out [this PR](https://github.com/hiyouga/LLaMA-Factory/pull/7719#issue-2992644288).
 
-
-
-
-## 7. Deployment
+## 8. Deployment
 
 ### Using vLLM
 
-We have submitted a Merge Request [#16387](https://github.com/vllm-project/vllm/pull/16387) to vLLM. You are welcome to deploy Kimi-VL using the branch corresponding to the vLLM MR until the MR is merged.
+The [vLLM main branch](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. You are welcome to deploy Kimi-VL using vLLM.
 
-## 8. Citation
+## 9. Citation
 
 ```
 @misc{kimiteam2025kimivltechnicalreport,
