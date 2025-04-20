@@ -235,7 +235,7 @@ for o in outputs:
 #### OpenAI-Compatible Server
 
 > [!Note]
-> More usages about `OpenAI-Compatible Server` can be found at [vLLM Offline Inference](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html).
+> More usages about `OpenAI-Compatible Server` can be found at [vLLM OpenAI-Compatible Server](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html#).
 
 Serve Kimi-VL with `vllm serve` command:
 
