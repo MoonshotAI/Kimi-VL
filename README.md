@@ -95,11 +95,12 @@ pip install -r requirements.txt
 
 ### Inference with Hugging Face Transformers 
 
-We introduce how to use our model at inference stage using transformers library. It is recommended to use python=3.10, torch>=2.1.0, and transformers=4.48.2 as the development environment. 
+We introduce how to use our model at inference stage using transformers library. It is recommended to use python=3.10, torch=2.5.1, and transformers=4.51.3 as the development environment. 
 
 Kimi-VL-A3B-Instruct:
 
 ```python
+import torch
 from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor
 
@@ -142,6 +143,7 @@ print(response)
 Kimi-VL-A3B-Thinking:
 
 ```python
+import torch
 from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor
 
@@ -196,6 +198,84 @@ The framework enables Single-GPU LoRA fine-tuning with 50GB of VRAM, as well as 
 ### Using vLLM
 
 The [vLLM main branch](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. You are welcome to deploy Kimi-VL using vLLM.
+
+#### Offline Inference
+
+> [!Note]
+> More usages about `Offline Inference` can be found at [vLLM Offline Inference](https://docs.vllm.ai/en/latest/serving/offline_inference.html).
+
+```python
+from PIL import Image
+from transformers import AutoProcessor
+from vllm import LLM, SamplingParams
+
+model_path = "moonshotai/Kimi-VL-A3B-Instruct"  # or "moonshotai/Kimi-VL-A3B-Thinking"
+llm = LLM(
+    model_path,
+    trust_remote_code=True,
+)
+
+processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
+
+image_path = "./figures/demo.png"
+image = Image.open(image_path)
+messages = [
+    {"role": "user", "content": [{"type": "image", "image": image_path}, {"type": "text", "text": "What is the dome building in the picture? Think step by step."}]}
+]
+text = processor.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
+outputs = llm.generate([{"prompt": text, "multi_modal_data": {"image": image}}], sampling_params = SamplingParams(max_tokens=512))
+
+print("-" * 50)
+for o in outputs:
+    generated_text = o.outputs[0].text
+    print(generated_text)
+    print("-" * 50)
+```
+
+#### OpenAI-Compatible Server
+
+> [!Note]
+> More usages about `OpenAI-Compatible Server` can be found at [vLLM Offline Inference](https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html).
+
+Serve Kimi-VL with `vllm serve` command:
+
+```bash
+# If you need a longer context window, you can set --max-model-len and --max-num-batched-tokens to 131072
+vllm serve moonshotai/Kimi-VL-A3B-Instruct --served-model-name kimi-vl --trust-remote-code --tensor-parallel-size 1 --max-num-batched-tokens 32768 --max-model-len 32768 --limit-mm-per-prompt image=8
+```
+
+Call the API
+
+```python
+import base64
+from PIL import Image
+from io import BytesIO
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:8000/v1",
+    api_key="token-abc123",
+)
+
+image_path = "./figures/demo.png"
+image = Image.open(image_path).convert("RGB")
+
+buffered = BytesIO()
+image.save(buffered, format="JPEG")
+img_b64_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+base64_image_url = f"data:image/jpeg;base64,{img_b64_str}"
+
+messages = [
+    {"role": "user", "content": [{"type": "image_url", "image_url": {"url": base64_image_url}}, {"type": "text", "text": "What is the dome building in the picture? Think step by step."}]}
+]
+
+completion = client.chat.completions.create(
+  model="kimi-vl",
+  messages=messages
+)
+
+print(completion.choices[0].message)
+```
 
 ## 9. Citation
 

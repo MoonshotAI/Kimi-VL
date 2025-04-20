@@ -1,7 +1,8 @@
-torch
-torchvision
-transformers>=4.45.0
+torch==2.5.1
+torchvision==0.20.1
+transformers==4.51.3
 pillow
 tiktoken
 accelerate
 blobfile
+openai
